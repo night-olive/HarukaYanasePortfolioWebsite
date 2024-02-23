@@ -1,0 +1,468 @@
+/*===================================================================
+*
+* main.scss
+*
+====================================================================*/
+@import "_reset","_cssEasing";
+/*===================================================================
+*
+====================================================================*/
+
+@function get_vw($size, $viewport: 375) {
+	$rate: 100 / $viewport;
+	@return $rate * $size * 1vw;
+}
+@mixin autoFontSize($font_size: 10) {
+    font-size: $font_size * 1px;
+    font-size: get_vw($font_size);
+}
+html{
+
+    //ノートパソコン基準
+    font-size: 1px;
+
+    //スマホ用の時は0.8倍
+	@media screen and (max-width: 768px){
+        @include autoFontSize(0.8);
+    }
+
+    //デスクトップ用
+	@media screen and (min-width: 1550px){
+        font-size: 1.2px;
+    }
+
+    //さらに大きいデスクトップ
+	@media screen and (min-width: 1800px){
+        font-size: 1.3px;
+    }
+    
+}
+
+body{
+    font-size: 16rem;
+}
+
+//初期設定終わり
+
+html,body{
+    background: #f4f9f9;
+    color: black;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+    font-weight:500;
+}
+
+
+
+a{
+    color: #000000;
+}
+
+.header-box{
+    height: 75rem;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    .header{
+        height: 75rem;
+        background: #f4f9f9;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        #logo{
+            margin-left: 7rem;
+            margin-right: 7rem;
+            img{
+                width: 70rem;
+
+            }
+        }
+
+        nav{
+
+            ul{
+                width: 400rem;
+                display: flex;
+                justify-content: space-between;
+                margin-right: 100rem;
+                li{
+                    font-size: 24rem;
+                    font-family: "century-gothic", sans-serif;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+#Headline{
+    padding-top: 75rem;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/Headline2.png);
+    background-size: cover;
+    background-position: center;
+    
+    #HeadlineText{
+        font-family: "Sorts Mill Goudy", sans-serif;
+        position: absolute;
+        .name{
+            font-size: 180rem;
+            letter-spacing: 0.09em;
+            .firstName{
+                position: absolute; 
+                top: 120rem;
+                left: 90rem;
+            }
+            .familyName{
+                position: absolute; 
+                top: 350rem;
+                left: 380rem;
+            }
+        }
+        .catchCopy{
+            position: absolute;
+            width: 1000rem;
+            font-size: 33rem;
+            letter-spacing: 0.12em;
+            top: 540rem;
+            left: 108rem;
+        }
+    }
+}
+
+
+.center{
+    width: 1100rem;
+    margin: 0 auto;
+}
+
+.category{
+    p{
+        font-family: "Sorts Mill Goudy", sans-serif;
+        font-size: 60rem;
+    }
+}
+
+.minCategory{
+    h2{
+        font-weight: normal;
+        font-size: 47rem;
+        font-family: "century-gothic", sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.07em;
+        display: flex;
+        justify-content: center;
+
+    }
+}
+
+.soft{
+    font-size: 30rem;
+    font-family: "Zen Maru Gothic", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.conceptTextTitle{
+    h3{
+        font-size: 30rem;
+        font-weight: normal;
+    }
+}
+
+input:-webkit-autofill{
+	box-shadow: 0 0 0rem 1000rem [white] inset;
+}
+
+main{
+    #works{
+        padding-top: 75rem;
+        margin-top: 100rem;
+        margin-bottom: 200rem;
+        .wrap-tab{
+
+            #worksMark{
+                margin-top: 70rem;
+                display: flex;
+                justify-content: flex-end;
+                overflow: hidden; 
+
+
+                .list-tab{
+                    width: 235rem;
+                    display: flex;
+                    justify-content: space-between;
+                    
+                    li{
+                        font-family: "century-gothic", sans-serif;
+                        font-weight: 400;
+                        font-size: 24rem;
+                        cursor: pointer;
+
+                        &.active{
+                            padding-bottom: 5rem;
+                            border-bottom: 1px solid #a0a5a4;
+                            cursor: pointer;
+                        }
+                    }
+
+                    li:nth-child(2)::before{
+                        content:"";
+                        display:inline-block;
+                        width:1.5rem;
+                        height:25rem;
+                        background-color:black;
+                        position:absolute;
+                        top: 3rem;
+                        left:-44rem;
+                    }
+                }
+            }
+        }
+
+
+        .wrap-tab-content{
+
+            .tab-content{
+                display: none;
+
+                &.active{
+                    display: block;
+                }
+                nav{
+                    ul{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        li{
+                            img{
+                                width: 530rem;
+                            }
+                            margin-top: 70rem;
+                            .worksText{
+                                margin-left: 20rem;
+                                .worksTitle{
+                                    margin-top: 30rem;
+                                    p{
+                                        font-weight: bold;
+                                        font-size: 16rem;
+                                    }
+                                }
+                                .worksCategory{
+                                    width: 143rem;
+                                    font-size: 12rem;
+                                    margin-top: 7rem;
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #about{
+        padding-top: 75rem;
+        margin-top: 200rem;
+        .profile{
+            .center{
+                .profileContent{
+                    width: 90%;
+                    margin: 120rem auto;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    
+                    img{
+                        width: 330rem;
+                    }
+                    .profileText{
+                        h1{
+                            font-weight: normal;
+                            font-size: 30rem;
+                        }
+                        p{
+                            margin-top: 20rem;
+                            font-size: 16rem;
+                        }
+                    }
+                }
+            }
+        }
+        .skill{
+            padding-bottom: 100rem;
+            .minCategory{
+                margin-bottom: 120rem;
+            }
+            ul{
+                display: flex;
+                flex-wrap: wrap;
+
+                li{
+                    width: 25%;
+                    text-align: center;
+                    margin-bottom: 90rem;
+                }
+            }
+        }
+        .concept{
+            width: 100%;
+            background-image: url(../images/consept2.png);
+            background-repeat: no-repeat;
+            padding: 120rem 0;
+            .conceptText{
+                .theme{
+                    padding-top: 120rem;
+                    padding-bottom: 50rem;
+                    .conceptTextTitle{
+                        padding-bottom: 50rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #contact{
+        padding-top: 75rem;
+        margin-top: 200rem;
+        .center{
+            .category{
+                margin-bottom: 100rem;
+            }
+                div{
+                    .form{
+                        display: block;
+                        margin-bottom: 20rem;
+                    }
+                    input[type="mail"]{
+                        width: 100%;
+                        padding: 3rem;
+                        margin-bottom: 70rem;
+                        border-width: thin;
+                    }
+                    input[type="text"]{
+                        width: 100%;
+                        padding: 3rem;
+                        margin-bottom: 70rem;
+                        border-width: thin;
+                    }
+                    input[type="text"]{
+                        width: 100%;
+                        padding: 3rem;
+                        margin-bottom: 70rem;
+                        border-width: thin;
+                    }
+                    textarea {
+                        resize: vertical; /* 縦方向のリサイズを許可 */
+                        width: 100%;
+                        padding: 3rem;
+                        margin-bottom: 70rem;
+                      }
+                    input:focus{
+                        background: #e6eeef;
+                        outline: 0.1rem solid
+                    }
+                    textarea:focus{
+                        background: #e6eeef;
+                        outline: 0.1rem solid
+                    }
+                }
+                .buttonSpace{
+                    margin-bottom: 70rem;
+                    text-align : center;
+                    .button {
+                        display : inline-block;
+                        border-radius : 5%;          /* 角丸       */
+                        font-size : 16rem;        /* 文字サイズ */
+                        text-align : center;      /* 文字位置   */
+                        cursor : pointer;     /* カーソル   */
+                        padding : 15rem 30rem;   /* 余白       */
+                        background : white;     /* 背景色     */
+                        color : #000000;     /* 文字色     */
+                        line-height : 1em;         /* 1行の高さ  */
+                        transition : .3s;         /* なめらか変化 */
+                        border-width: thin;
+                    }
+                    .button:hover {
+                        background: #e6eeef;
+                    }
+                }         
+        }
+    }
+
+
+    #thanksPage{
+        #thanksLogo{
+            text-align: center;
+            padding-top: 200rem;
+            padding-bottom: 50rem;
+            img{
+                width: 150rem;
+                
+            }
+        }
+        .thanksMessage{
+            h1{
+                text-align: center;
+                padding: 20rem 0;
+                font-size: 26rem;
+            }
+            p{
+                text-align: center;
+                padding-bottom: 150rem;
+                font-size: 16rem;
+            }
+
+        }
+    }
+}
+
+
+
+footer{
+    #footer{
+        height: 375rem;
+        background: #eaefef;
+        .footerText{
+            font-family: "Sorts Mill Goudy", sans-serif;
+            padding: 60rem;
+            p{
+                font-size: 58rem;
+            }
+        }
+        nav{
+            display: flex;
+            justify-content: center;
+            ul{
+                width: 1300rem;
+                display: flex;
+                justify-content: space-between;
+                li{
+                    font-family: "century-gothic", sans-serif;
+                    font-weight: 400;
+                    font-size: 36rem;
+                }
+            }
+        }
+        .copyRight{
+            padding-top: 110rem;
+            p{
+                font-size: 18rem;
+                text-align: center;
+            }
+        }
+    }
+}
